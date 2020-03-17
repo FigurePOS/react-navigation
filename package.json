@@ -9,10 +9,6 @@
   },
   "module": "lib/react-navigation.web.js",
   "webpack": "lib/react-navigation.web.js",
-  "repository": {
-    "url": "git@github.com:react-community/react-navigation.git",
-    "type": "git"
-  },
   "author": "Adam Miskiewicz <adam@sk3vy.com>",
   "license": "BSD-2-Clause",
   "scripts": {
