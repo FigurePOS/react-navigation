@@ -23,11 +23,11 @@ export default function withCachedChildNavigation<T: *, N: *>(
 
     props: T;
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       this._updateNavigationProps(this.props.navigation);
     }
 
-    componentWillReceiveProps(nextProps: T) {
+    UNSAFE_componentWillReceiveProps(nextProps: T) {
       this._updateNavigationProps(nextProps.navigation);
     }
 

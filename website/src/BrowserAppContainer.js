@@ -43,7 +43,7 @@ export default NavigationAwareView => {
         if (action) this.dispatch(action);
       };
     }
-    componentWillUpdate(props, state) {
+    UNSAFE_componentWillUpdate(props, state) {
       const {
         path,
         params,

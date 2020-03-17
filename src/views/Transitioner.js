@@ -84,9 +84,6 @@ class Transitioner extends React.Component<*, Props, State> {
     this._isMounted = false;
     this._isTransitionRunning = false;
     this._queuedTransition = null;
-  }
-
-  componentWillMount(): void {
     this._onLayout = this._onLayout.bind(this);
     this._onTransitionEnd = this._onTransitionEnd.bind(this);
   }
@@ -99,7 +96,7 @@ class Transitioner extends React.Component<*, Props, State> {
     this._isMounted = false;
   }
 
-  componentWillReceiveProps(nextProps: Props): void {
+  UNSAFE_componentWillReceiveProps(nextProps: Props): void {
     const nextScenes = NavigationScenesReducer(
       this.state.scenes,
       nextProps.navigation.state,

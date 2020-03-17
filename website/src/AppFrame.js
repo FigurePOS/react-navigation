@@ -44,7 +44,7 @@ const NavigationLinks = ({ navigation, className, reverse }) => {
 
 class AppFrame extends React.Component {
   state = { isMobileMenuOpen: false };
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     if (this.props.navigation.state !== props.navigation.state) {
       this.setState({ isMobileMenuOpen: false });
       window.scrollTo(0, 0);

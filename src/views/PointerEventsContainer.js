@@ -30,9 +30,6 @@ export default function create(Component: ReactClass<*>): ReactClass<*> {
     constructor(props: Props, context: any) {
       super(props, context);
       this._pointerEvents = this._computePointerEvents();
-    }
-
-    componentWillMount(): void {
       this._onPositionChange = this._onPositionChange.bind(this);
       this._onComponentRef = this._onComponentRef.bind(this);
     }
@@ -45,7 +42,7 @@ export default function create(Component: ReactClass<*>): ReactClass<*> {
       this._positionListener && this._positionListener.remove();
     }
 
-    componentWillReceiveProps(nextProps: Props): void {
+    UNSAFE_componentWillReceiveProps(nextProps: Props): void {
       this._bindPosition(nextProps);
     }
 

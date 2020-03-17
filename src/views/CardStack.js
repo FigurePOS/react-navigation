@@ -128,7 +128,7 @@ class CardStack extends Component {
 
   props: Props;
 
-  componentWillReceiveProps(props: Props) {
+  UNSAFE_componentWillReceiveProps(props: Props) {
     if (props.screenProps !== this.props.screenProps) {
       this._screenDetails = {};
     }

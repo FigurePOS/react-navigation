@@ -144,7 +144,7 @@ export default function createNavigationContainer<T: *>(
       }
     }
 
-    componentWillReceiveProps(nextProps: *) {
+    UNSAFE_componentWillReceiveProps(nextProps: *) {
       this._validateProps(nextProps);
     }
 

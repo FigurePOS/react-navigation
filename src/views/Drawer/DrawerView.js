@@ -52,11 +52,11 @@ type Props = DrawerViewConfig & {
 export default class DrawerView<T: *> extends PureComponent<void, Props, void> {
   props: Props;
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this._updateScreenNavigation(this.props.navigation);
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
     if (
       this.props.navigation.state.index !== nextProps.navigation.state.index
     ) {
