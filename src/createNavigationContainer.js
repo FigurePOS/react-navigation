@@ -51,6 +51,9 @@ export default function createNavigationContainer<T: *>(
     subs: ?{
       remove: () => void,
     } = null;
+    linkingSubscription: ?{
+      remove: () => void,
+    } = null;
 
     static router = Component.router;
 
@@ -157,9 +160,12 @@ export default function createNavigationContainer<T: *>(
         this.dispatch(NavigationActions.back())
       );
 
-      Linking.addEventListener('url', ({ url }: { url: string }) => {
-        this._handleOpenURL(url);
-      });
+      this.linkingSubscription = Linking.addEventListener(
+        'url',
+        ({ url }: { url: string }) => {
+          this._handleOpenURL(url);
+        }
+      );
 
       Linking.getInitialURL().then(
         (url: string) => url && this._handleOpenURL(url)
@@ -167,7 +173,7 @@ export default function createNavigationContainer<T: *>(
     }
 
     componentWillUnmount() {
-      Linking.removeEventListener('url', this._handleOpenURL);
+      this.linkingSubscription && this.linkingSubscription.remove();
       this.subs && this.subs.remove();
     }
 
